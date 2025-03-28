@@ -1,0 +1,62 @@
+.Wrapper {
+  width: 60%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: 1px solid gray;
+}
+
+.Container {
+  border: 1px solid black;
+  background-image: url('./../../common/map2023.jpg');
+  background-size: cover;
+}
+
+@media only screen and (max-width: 600px) {
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 518px;
+    height: 524px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 518px;
+    height: 524px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 518px;
+    height: 524px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 518px;
+    height: 524px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 518px;
+    height: 524px;
+  }
+}
