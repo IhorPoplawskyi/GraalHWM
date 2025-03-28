@@ -1,5 +1,10 @@
-export const  HistoryPageNavItem = ({ date, index, changeMap }) => {
+import { useAppDispatch } from "../../redux/store";
+import { setCurrHistoryMap } from "../../redux/tempSlice";
+
+export const  HistoryPageNavItem = ({ date, index }) => {
+  const dispatch = useAppDispatch();
+
   return (
-    <div onClick={changeMap(index)}>{date}</div>
+    <div onClick={() => dispatch(setCurrHistoryMap(index))}>{date}</div>
   )
 }

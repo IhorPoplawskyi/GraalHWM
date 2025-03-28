@@ -2,9 +2,11 @@ import s from "./MapItem.module.scss";
 import showel from "../../common/showel.png";
 import { openCell } from "../../redux/tempSlice";
 import { useAppDispatch } from "../../redux/store";
+import cn from "classnames";
 
 export const MapItem = ({ id, closed, attemps }) => {
   const dispatch = useAppDispatch();
+  const closedMap = false;
 
   return (
     <>
@@ -14,7 +16,7 @@ export const MapItem = ({ id, closed, attemps }) => {
         </div>
       ) : (
         <div
-          className={s.item}
+          className={closedMap ? cn(s.item, s.closedMap) : s.item}
           onClick={() => {
             if (attemps <= 0) {
               return;

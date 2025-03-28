@@ -34,6 +34,13 @@
   }
 }
 
+.closedMap {
+  cursor: default;
+  &:hover {
+    border: 1px solid white;;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .Container {
     display: flex;

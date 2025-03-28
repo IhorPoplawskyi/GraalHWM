@@ -10,6 +10,7 @@ const InitState = {
     attemps: 5,
   },
   history: [firstGraal, secondGraal, thirdGraal],
+  currHistoryMap: 0,
 };
 
 const tempSlice = createSlice({
@@ -25,9 +26,12 @@ const tempSlice = createSlice({
       });
       state.user.attemps -= 1;
     },
+    setCurrHistoryMap(state, action) {
+      state.currHistoryMap = action.payload;
+    }
   },
 });
 
-export const { openCell } = tempSlice.actions;
+export const { openCell, setCurrHistoryMap } = tempSlice.actions;
 
 export default tempSlice.reducer;
