@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 20%;
+  height: 550px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.list {
+  height: 500px;
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.item {
+  width: 100%;
+  border-bottom: 1px dashed gray;
+  display: flex;
+  justify-content: center;
+}

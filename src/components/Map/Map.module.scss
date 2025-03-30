@@ -1,0 +1,20 @@
+.container {
+  border: 1px solid gray;
+  background-image: url('./../../common/map2023.jpg');
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  width: 525px;
+  height: 525px;
+}
+
+.wrapper {
+  width: 565px;
+  height: 565px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: rgb(190, 197, 217);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

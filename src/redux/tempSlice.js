@@ -7,7 +7,7 @@ const InitState = {
   user: {
     nick: "Лосось",
     picture: null,
-    attemps: 5,
+    attemps: 150,
   },
   history: [firstGraal, secondGraal, thirdGraal],
   currHistoryMap: 0,

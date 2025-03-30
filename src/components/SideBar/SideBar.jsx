@@ -7,15 +7,17 @@ import { UserInfo } from "../UserInfo/UserInfo";
 import { useAppSelector } from "../../redux/store";
 
 export const SideBar = () => {
-  const user = useAppSelector(state => state.tempSlice.user);
+  const user = useAppSelector((state) => state.tempSlice.user);
 
   return (
     <>
       <div className={s.container}>
-        <UserInfo user={user}/>
-        <SideBarItem image={graal} path='/'/>
-        <SideBarItem image={history} path='history'/>
-        <SideBarItem image={settings} path='settings'/>
+        <UserInfo user={user} />
+        <div className={s.sideBarItems}>
+          <SideBarItem image={graal} path="/" />
+          <SideBarItem image={history} path="history" />
+          <SideBarItem image={settings} path="settings" />
+        </div>
       </div>
     </>
   );

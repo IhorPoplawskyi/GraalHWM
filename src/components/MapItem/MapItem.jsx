@@ -1,18 +1,18 @@
 import s from "./MapItem.module.scss";
 import showel from "../../common/showel.png";
+import giftBox from "../../common/giftBox.png";
 import { openCell } from "../../redux/tempSlice";
 import { useAppDispatch } from "../../redux/store";
 import cn from "classnames";
 
-export const MapItem = ({ id, closed, attemps }) => {
+export const MapItem = ({ id, closed, attemps, closedMap = false, prize }) => {
   const dispatch = useAppDispatch();
-  const closedMap = false;
 
   return (
     <>
       {closed ? (
-        <div className={s.closedItem}>
-          <img src={showel} />
+        <div className={s.closedItem} title={prize}>
+          {prize === '' ? <img src={showel} /> : <img src={giftBox}/>}
         </div>
       ) : (
         <div
