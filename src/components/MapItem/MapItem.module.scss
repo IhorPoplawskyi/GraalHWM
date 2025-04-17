@@ -9,9 +9,11 @@
   border: 1px solid white;
   box-sizing: border-box;
   cursor: pointer;
+
   &:hover {
     border: 1px solid red;
   }
+
   img {
     width: 30px;
     height: 30px;
@@ -37,7 +39,97 @@
 
 .closedMap {
   cursor: default;
+
   &:hover {
-    border: 1px solid white;;
+    border: 1px solid white;
+    ;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .item {
+    height: 19px;
+    width: 19px;
+
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .closedItem {
+    height: 19px;
+    width: 19px;
+
+    img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .item {
+    height: 24px;
+    width: 24px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .closedItem {
+    height: 24px;
+    width: 24px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .item {
+    height: 32px;
+    width: 32px;
+
+    img {
+      width: 27px;
+      height: 27px;
+    }
+  }
+
+  .closedItem {
+    height: 32px;
+    width: 32px;
+
+    img {
+      width: 27px;
+      height: 27px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .item {
+    height: 35px;
+    width: 35px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .closedItem {
+    height: 35px;
+    width: 35px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
   }
 }

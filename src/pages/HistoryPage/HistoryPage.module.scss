@@ -1,4 +1,4 @@
-.wrapper {
+.historyPageWrapper {
   width: 60%;
   height: 90%;
   display: flex;
@@ -10,9 +10,53 @@
   border: 1px solid gray;
 }
 
-.container {
+.historyPageContainer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+}
+
+@media only screen and (max-width: 420px) {
+  .historyPageWrapper {
+    width: 95%;
+  }
+
+  .historyPageContainer {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .historyPageWrapper {
+    width: 95%;
+  }
+
+  .historyPageContainer {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .historyPageWrapper {
+    width: 85%;
+  }
+
+  .historyPageContainer {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .historyPageWrapper {
+    width: 65%;
+  }
+
+  .historyPageContainer {
+    flex-direction: row;
+    width: 100%;
+  }
 }

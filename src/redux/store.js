@@ -2,14 +2,14 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import tempSlice from "./tempSlice"
 
-function saveToLocalStorage(state) {
-  try {
-    const serialisedState = JSON.stringify(state);
-    localStorage.setItem("logged", serialisedState);
-  } catch (e) {
-    console.warn(e);
-  }
-}
+// function saveToLocalStorage(state) {
+//   try {
+//     const serialisedState = JSON.stringify(state);
+//     localStorage.setItem("logged", serialisedState);
+//   } catch (e) {
+//     console.warn(e);
+//   }
+// }
 
 const rootReducer = combineReducers({
   tempSlice,

@@ -24,7 +24,7 @@ export const MapItem = ({ id, closed, attemps, closedMap = false, prize }) => {
               dispatch(openCell(id));
             }
           }}
-        ></div>
+        >{id + 1}</div>
       )}
     </>
   );

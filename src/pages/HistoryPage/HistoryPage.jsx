@@ -10,9 +10,9 @@ export const HistoryPage = () => {
   );
 
   return (
-    <div className={s.wrapper}>
+    <div className={s.historyPageWrapper}>
       {history.length !== 0 ? (
-        <div className={s.container}>
+        <div className={s.historyPageContainer}>
           <HistoryPageNav history={history} />
           <Map data={history[currHistoryMap].data} closedMap={true} />
         </div>

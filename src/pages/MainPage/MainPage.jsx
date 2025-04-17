@@ -8,11 +8,12 @@ export const MainPage = () => {
   let attemps = useAppSelector(state => state.tempSlice.user.attemps);
 
   return (
-    <div className={style.wrapper}>
-      <div className={style.container}>
+    <div className={style.mainPageWrapper}>
+      <div className={style.mainPageContainer}>
         <PrizeList />
-        <Map data={data} attemps={attemps}/>
+        <Map data={data} attemps={attemps} />
       </div>
     </div>
   );
 };
+

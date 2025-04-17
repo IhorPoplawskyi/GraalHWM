@@ -1,5 +1,5 @@
 .container {
-  width: 10%;
+  width: 120px;
   height: 90%;
   box-sizing: border-box;
   background-color: white;
@@ -16,4 +16,48 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 420px) {
+  .container {
+    margin-top: 5px;
+    width: 95%;
+    height: 100px;
+    flex-direction: row;
+  }
+
+  .sideBarItems {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .container {
+    margin-top: 5px;
+    width: 95%;
+    height: 100px;
+    flex-direction: row;
+  }
+
+  .sideBarItems {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    width: 120px;
+    height: 90%;
+    flex-direction: column;
+  }
+
+  .sideBarItems {
+    flex-direction: column;
+  }
 }

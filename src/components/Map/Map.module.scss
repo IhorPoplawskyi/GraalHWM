@@ -1,4 +1,4 @@
-.container {
+.mapContainer {
   border: 1px solid gray;
   background-image: url('./../../common/map2023.jpg');
   background-size: cover;
@@ -8,7 +8,7 @@
   height: 525px;
 }
 
-.wrapper {
+.mapWrapper {
   width: 565px;
   height: 565px;
   border: 1px solid gray;
@@ -17,4 +17,60 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 420px) {
+  .mapContainer {
+    height: 285px;
+    width: 285px;
+  }
+
+  .mapWrapper {
+    height: 320px;
+    width: 320px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .mapContainer {
+    height: 360px;
+    width: 360px;
+  }
+
+  .mapWrapper {
+    height: 390px;
+    width: 390px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .mapContainer {
+    height: 480px;
+    width: 480px;
+  }
+
+  .mapWrapper {
+    height: 510px;
+    width: 510px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mapContainer {
+    height: 525px;
+    width: 525px;
+  }
+
+  .mapWrapper {
+    height: 555px;
+    width: 555px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }

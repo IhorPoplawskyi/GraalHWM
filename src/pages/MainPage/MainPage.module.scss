@@ -1,4 +1,4 @@
-.wrapper {
+.mainPageWrapper {
   width: 60%;
   height: 90%;
   display: flex;
@@ -10,49 +10,53 @@
   border: 1px solid gray;
 }
 
-.container {
+.mainPageContainer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
 }
 
-// @media only screen and (max-width: 600px) {
-//   .container {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 518px;
-//     height: 524px;
-//   }
-// }
+@media only screen and (max-width: 420px) {
+  .mainPageWrapper {
+    width: 95%;
+  }
 
-// @media only screen and (min-width: 600px) {
-//   .Container {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 518px;
-//     height: 524px;
-//   }
-// }
+  .mainPageContainer {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+}
 
-// @media only screen and (min-width: 768px) {
-//   .Container {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 518px;
-//     height: 524px;
-//   }
-// }
+@media only screen and (min-width: 420px) {
+  .mainPageWrapper {
+    width: 95%;
+  }
 
-// @media only screen and (min-width: 992px) {
-//   .Container {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 518px;
-//     height: 524px;
-//   }
-// }
+  .mainPageContainer {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+}
 
-// @media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 992px) {
+  .mainPageWrapper {
+    width: 85%;
+  }
 
-// }
+  .mainPageContainer {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .mainPageWrapper {
+    width: 65%;
+  }
+
+  .mainPageContainer {
+    flex-direction: row;
+    width: 100%;
+  }
+}

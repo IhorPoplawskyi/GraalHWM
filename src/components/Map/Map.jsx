@@ -4,8 +4,8 @@ import s from "./Map.module.scss";
 export const Map = ({ data, attemps, closedMap }) => {
 
   return (
-    <div className={s.wrapper}>
-      <div className={s.container}>
+    <div className={s.mapWrapper}>
+      <div className={s.mapContainer}>
         {data.map((el) => (
           <MapItem
             key={el.id}

@@ -10,6 +10,7 @@
   background-color: white;
   box-shadow: 1px 1px 1px gray;
   cursor: pointer;
+
   &:hover {
     background-color: rgb(190, 197, 217);
     color: white;
@@ -19,4 +20,34 @@
 .activeItem {
   background-color: rgb(190, 197, 217);
   color: white;
+}
+
+@media only screen and (max-width: 420px) {
+  .wrapper {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .wrapper {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .wrapper {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .wrapper {
+    width: 100%;
+  }
 }

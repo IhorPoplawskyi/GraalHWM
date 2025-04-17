@@ -7,3 +7,50 @@
   height: 90%;
   border-radius: 10px;
 }
+
+@media only screen and (max-width: 420px) {
+  .container {
+    width: 320px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .container {
+    width: 320px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    width: 320px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 320px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    width: 20%;
+    flex-direction: column;
+  }
+}
