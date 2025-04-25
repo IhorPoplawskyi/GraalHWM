@@ -1,7 +1,7 @@
+import s from "./UserInfo.module.scss";
 import userImage from "../../common/user.png";
-import s from './UserInfo.module.scss';
 
-export const UserInfo = ({user}) => {
+export const UserInfo = ({ user }) => {
   const { nick, picture, attemps } = user;
 
   return (
@@ -13,4 +13,4 @@ export const UserInfo = ({user}) => {
       <div>Попиток: {attemps}</div>
     </div>
   );
-}
+};

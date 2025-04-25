@@ -1,10 +1,11 @@
-import { useAppSelector } from "../../redux/store";
 import s from "./PrizeList.module.scss";
+
+import { useAppSelector } from "../../redux/store";
 
 export const PrizeList = () => {
   let prizes = useAppSelector((state) => state.tempSlice.data);
   let openCellsCount = useAppSelector((state) => state.tempSlice.data);
-  openCellsCount = openCellsCount.filter(el => el.closed === false);
+  openCellsCount = openCellsCount.filter((el) => el.closed === false);
   prizes = prizes.filter((el) => el.prize !== "");
   prizes = prizes.filter((el) => el.closed === false);
   prizes = prizes.map((el) => el.prize);

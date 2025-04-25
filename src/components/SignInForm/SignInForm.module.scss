@@ -1,0 +1,43 @@
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+}
+
+.text {
+    font-size: 36px;
+    color: gray;
+}
+
+.submitBtn {
+    margin-top: 20px;
+    height: 30px;
+    color: white;
+    background-color: rgb(190, 197, 217);
+    border-radius: 5px;
+    border: 1px solid gray;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+}
+
+.input {
+    border-radius: 5px;
+    height: 25px;
+    border: 1px solid gray;
+    color: gray;
+}
+
+.label {
+    font-size: 12px;
+    margin-top: 7px;
+    margin-bottom: 2px;
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+}

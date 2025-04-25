@@ -1,8 +1,8 @@
-import { MapItem } from "./../MapItem/MapItem";
 import s from "./Map.module.scss";
 
-export const Map = ({ data, attemps, closedMap }) => {
+import { MapItem } from "./../MapItem/MapItem";
 
+export const Map = ({ data, attemps, closedMap }) => {
   return (
     <div className={s.mapWrapper}>
       <div className={s.mapContainer}>

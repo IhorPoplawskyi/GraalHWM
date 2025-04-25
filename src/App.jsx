@@ -1,24 +1,43 @@
-import { SideBar } from "./components/SideBar/SideBar";
-import { MainPage } from "./pages/MainPage/MainPage";
 import s from "./App.module.scss";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { HistoryPage } from "./pages/HistoryPage/HistoryPage";
+
+import { useAppSelector } from "./redux/store";
 import { PrivateRoute } from "./utils/PrivateRoute";
+import { MainPage } from "./pages/MainPage/MainPage";
+import { SignPage } from "./pages/SignPage/SignPage";
+import { SideBar } from "./components/SideBar/SideBar";
 import { AdminPage } from "./pages/AdminPage/AdminPage";
+import { HistoryPage } from "./pages/HistoryPage/HistoryPage";
+import { PrivateAdminRoute } from "./utils/PrivateAdminRoute";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const App = () => {
+  const logged = useAppSelector((state) => state.tempSlice.logged);
+
   return (
     <BrowserRouter>
       <div className={s.wrapper}>
         <SideBar />
         <Routes>
-          <Route path="*" element={<Navigate to="/" />} />
-          <Route path="/" element={<MainPage />} />
-          <Route path="history" element={<HistoryPage />} />
+          {logged ? (
+            <Route path="*" element={<Navigate to="/" />} />
+          ) : (
+            <Route path="*" element={<Navigate to="/login" />} />
+          )}
+          {logged ? (
+            <Route path="/" element={<PrivateRoute component={MainPage} />} />
+          ) : (
+            <Route path="/" element={<Navigate to="/login" />} />
+          )}
+          <Route path="/" element={<PrivateRoute component={MainPage} />} />
+          <Route
+            path="history"
+            element={<PrivateRoute component={HistoryPage} />}
+          />
           <Route
             path="/admin"
-            element={<PrivateRoute component={AdminPage} />}
+            element={<PrivateAdminRoute component={AdminPage} />}
           />
+          <Route path="/login" element={<SignPage />} />
         </Routes>
       </div>
     </BrowserRouter>

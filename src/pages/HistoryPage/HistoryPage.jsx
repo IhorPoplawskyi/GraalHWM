@@ -1,7 +1,8 @@
-import { Map } from "../../components/Map/Map";
-import { HistoryPageNav } from "../../components/HistoryPageNav/HistoryPageNav";
-import { useAppSelector } from "../../redux/store";
 import s from "./HistoryPage.module.scss";
+
+import { Map } from "../../components/Map/Map";
+import { useAppSelector } from "../../redux/store";
+import { HistoryPageNav } from "../../components/HistoryPageNav/HistoryPageNav";
 
 export const HistoryPage = () => {
   const history = useAppSelector((state) => state.tempSlice.history);

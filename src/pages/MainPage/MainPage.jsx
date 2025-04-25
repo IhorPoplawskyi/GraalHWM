@@ -1,19 +1,19 @@
+import s from "./MainPage.module.scss";
+
 import { Map } from "../../components/Map/Map";
-import { PrizeList } from "../../components/PrizeList/PrizeList";
 import { useAppSelector } from "../../redux/store";
-import style from "./MainPage.module.scss";
+import { PrizeList } from "../../components/PrizeList/PrizeList";
 
 export const MainPage = () => {
-  let data = useAppSelector(state => state.tempSlice.data);
-  let attemps = useAppSelector(state => state.tempSlice.user.attemps);
+  let data = useAppSelector((state) => state.tempSlice.data);
+  let attemps = useAppSelector((state) => state.tempSlice.user.attemps);
 
   return (
-    <div className={style.mainPageWrapper}>
-      <div className={style.mainPageContainer}>
+    <div className={s.mainPageWrapper}>
+      <div className={s.mainPageContainer}>
         <PrizeList />
         <Map data={data} attemps={attemps} />
       </div>
     </div>
   );
 };
-
