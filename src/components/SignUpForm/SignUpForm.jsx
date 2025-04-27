@@ -1,6 +1,7 @@
 import s from "./SignUpForm.module.scss";
 
 import { useForm } from "react-hook-form";
+import { signUpThunk } from "../../redux/thunks";
 
 export const SignUpForm = () => {
   const {
@@ -9,7 +10,7 @@ export const SignUpForm = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => signUpThunk(data);
 
   return (
     <>
@@ -18,7 +19,7 @@ export const SignUpForm = () => {
         <label className={s.label}>Username</label>
         <input
           className={s.input}
-          {...register("username", { required: true })}
+          {...register("username", { required: true, maxLength: 50, min: 2})}
           style={errors.username ? { border: "1px solid red" } : {}}
           placeholder="xvxPAINxvx"
         />

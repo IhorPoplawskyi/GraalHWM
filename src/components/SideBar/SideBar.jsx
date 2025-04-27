@@ -11,6 +11,7 @@ import { SideBarItem } from "../SideBarItem/SideBarItem";
 export const SideBar = () => {
   const user = useAppSelector((state) => state.tempSlice.user);
   const logged = useAppSelector((state) => state.tempSlice.logged);
+  const admin = useAppSelector((state) => state.tempSlice.admin);
 
   if (logged)
     return (
@@ -21,7 +22,7 @@ export const SideBar = () => {
             <SideBarItem image={graal} path="/" />
             <SideBarItem image={history} path="history" />
             <SideBarItem image={settings} path="settings" />
-            {logged === true ? (
+            {admin === true ? (
               <SideBarItem image={admin} path="admin" />
             ) : null}
           </div>

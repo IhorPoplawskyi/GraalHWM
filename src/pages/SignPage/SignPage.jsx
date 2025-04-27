@@ -16,23 +16,35 @@ export const SignPage = () => {
       <>
         <div className={s.signPageWrapper}>
           <div className={s.signPageLeft}>
+            <div className={s.signButtonsBlock}>
+              {form === "signup" && (
+                <div>
+                  <div className={s.text}>Already have account?</div>
+                  <div
+                    className={s.signButton}
+                    onClick={() => setForm("signin")}
+                  >
+                    Sign in
+                  </div>
+                </div>
+              )}
+              {form === "signin" && (
+                <div>
+                  <div className={s.text}>Don't have account?</div>
+                  <div
+                    className={s.signButton}
+                    onClick={() => setForm("signup")}
+                  >
+                    Sign up
+                  </div>
+                </div>
+              )}
+            </div>
             {form === "signin" && <SignInForm />}
             {form === "signup" && <SignUpForm />}
           </div>
           <div className={s.signPageRight}>
             <img src={pain} />
-            <div className={s.signButtonsBlock}>
-              {form === "signup" && (
-                <div className={s.signButton} onClick={() => setForm("signin")}>
-                  Sign in
-                </div>
-              )}
-              {form === "signin" && (
-                <div className={s.signButton} onClick={() => setForm("signup")}>
-                  Sign up
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </>
