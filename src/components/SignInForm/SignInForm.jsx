@@ -1,8 +1,9 @@
 import s from "./SignInForm.module.scss";
 
-import { useForm } from "react-hook-form";
+import { useForm as useFormImport } from "react-hook-form";
 
 export const SignInForm = () => {
+  const useForm = useFormImport;
   const {
     register,
     handleSubmit,
