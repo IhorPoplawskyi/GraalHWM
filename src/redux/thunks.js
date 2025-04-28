@@ -1,4 +1,4 @@
-export const signUpThunk = async ({username, email, password}) => {
+export const signUp = async ({username, email, password}) => {
   const obj = {
     'nickname': username,
     'email': email,

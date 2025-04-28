@@ -1,17 +1,16 @@
 import s from "./SignUpForm.module.scss";
 
-import { useForm as useFormImport } from "react-hook-form";
-import { signUpThunk } from "../../redux/thunks";
-
+import { useForm } from "react-hook-form";
+import { signUp } from "../../redux/thunks"
+ 
 export const SignUpForm = () => {
-  const useForm = useFormImport;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => signUpThunk(data);
+  const onSubmit = (data) => signUp(data);
 
   return (
     <>
