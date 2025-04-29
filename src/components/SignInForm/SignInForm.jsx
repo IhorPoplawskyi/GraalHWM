@@ -1,16 +1,20 @@
 import s from "./SignInForm.module.scss";
 
-import { useForm as useFormImport } from "react-hook-form";
+import { useForm  } from "react-hook-form";
+import { signInThunk } from "../../redux/thunks";
+import { useAppDispatch } from "../../redux/store";
+
 
 export const SignInForm = () => {
-  const useForm = useFormImport;
+  const dispatch = useAppDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => dispatch(signInThunk(data));
 
   return (
     <form className={s.formWrapper} onSubmit={handleSubmit(onSubmit)}>

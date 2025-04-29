@@ -1,7 +1,7 @@
 import s from "./SignUpForm.module.scss";
 
 import { useForm } from "react-hook-form";
-import { signUp } from "../../redux/thunks"
+import { signUpThunk } from "../../redux/thunks"
  
 export const SignUpForm = () => {
   const {
@@ -10,7 +10,7 @@ export const SignUpForm = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => signUp(data);
+  const onSubmit = (data) => signUpThunk(data);
 
   return (
     <>

@@ -2,10 +2,9 @@ import { Navigate } from "react-router-dom";
 import { useAppSelector } from "../redux/store";
 
 export const PrivateAdminRoute = ({ component: RouteComponent }) => {
-  const logged = useAppSelector((state) => state.tempSlice.logged);
-  const admin = useAppSelector((state) => state.tempSlice.admin);
+  const logged = useAppSelector((state) => state.user.token);
 
-  if (admin && logged) {
+  if (logged.length > 0) {
     return <RouteComponent />;
   }
 

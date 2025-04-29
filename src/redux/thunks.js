@@ -1,22 +1,18 @@
-export const signUp = async ({username, email, password}) => {
-  const obj = {
-    'nickname': username,
-    'email': email,
-    'password': password,
-  }  
-  try {
-    const response = await fetch(
-      `https://treasure-bay.onrender.com/users/sign-up`,
-      {
-        method: "POST",
-        body: JSON.stringify(obj),
-        headers: { "Content-type": "application/json" },
-      }
-    );
-    const data = await response.json();
-    console.log(obj)
-    console.log(data);
-  } catch (e) {
-    console.log(e);
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { signUp, signIn } from "../api";
+
+export const signUpThunk = createAsyncThunk(
+  "userSlice/signUpThunk",
+  async (_args, thunkAPI) => {
+    const data = await signUp(_args);
+    return data;
   }
-};
+);
+
+export const signInThunk = createAsyncThunk(
+  "userSlice/signInThunk",
+  async (_args, thunkAPI) => {
+    const data = await signIn(_args);
+    return data;
+  }
+);

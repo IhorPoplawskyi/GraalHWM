@@ -1,19 +1,23 @@
 import s from "./SideBar.module.scss";
 import graal from "../../common/graal.png";
-import admin from "../../common/admin.png";
+import adminP from "../../common/admin.png";
 import history from "../../common/history.png";
 import settings from "../../common/settings.png";
 
+import { logout } from "../../redux/userSlice";
 import { UserInfo } from "../UserInfo/UserInfo";
-import { useAppSelector } from "../../redux/store";
 import { SideBarItem } from "../SideBarItem/SideBarItem";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { useNavigate } from "react-router-dom";
 
 export const SideBar = () => {
-  const user = useAppSelector((state) => state.tempSlice.user);
-  const logged = useAppSelector((state) => state.tempSlice.logged);
-  const admin = useAppSelector((state) => state.tempSlice.admin);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state) => state.user);
+  const role = useAppSelector((state) => state.user.role);
+  const logged = useAppSelector((state) => state.user.token);
 
-  if (logged)
+  if (logged.length > 0)
     return (
       <>
         <div className={s.container}>
@@ -22,9 +26,13 @@ export const SideBar = () => {
             <SideBarItem image={graal} path="/" />
             <SideBarItem image={history} path="history" />
             <SideBarItem image={settings} path="settings" />
-            {admin === true ? (
-              <SideBarItem image={admin} path="admin" />
+            {role === "SUPER_ADMIN" ? (
+              <SideBarItem image={adminP} path="admin" />
             ) : null}
+            <div className={s.logoutBtn} onClick={() => {
+              dispatch(logout());
+              navigate("/login");
+            }}>Log out</div>
           </div>
         </div>
       </>

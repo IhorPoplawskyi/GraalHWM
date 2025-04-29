@@ -1,31 +1,50 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import tempSlice from "./tempSlice"
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-// function saveToLocalStorage(state) {
-//   try {
-//     const serialisedState = JSON.stringify(state);
-//     localStorage.setItem("logged", serialisedState);
-//   } catch (e) {
-//     console.warn(e);
-//   }
-// }
+import tempSlice from "./tempSlice";
+import storage from "redux-persist/lib/storage";
+import userSlice from "./userSlice";
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ["user"]
+}
 
 const rootReducer = combineReducers({
   tempSlice,
+  user: userSlice,
 });
+
+//const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+    // middleware: (getDefaultMiddleware) =>
+    //   getDefaultMiddleware({
+    //     serializableCheck: {
+    //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    //     },
+    //   }),
   });
 };
 
+
 export const store = setupStore();
 
-// store.subscribe(() =>
-//   saveToLocalStorage(store.getState().profilePageSlice.logged)
-// );
+//export const persistor = persistStore(store);
 
 export const useAppDispatch = () => useDispatch();
 export const useAppSelector = useSelector;

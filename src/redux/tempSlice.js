@@ -11,8 +11,6 @@ const InitState = {
   },
   history: [firstGraal, secondGraal, thirdGraal],
   currHistoryMap: 0,
-  logged: false,
-  admin: false,
 };
 
 const tempSlice = createSlice({

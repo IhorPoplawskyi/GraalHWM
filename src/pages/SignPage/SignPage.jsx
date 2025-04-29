@@ -9,7 +9,7 @@ import { SignUpForm } from "../../components/SignUpForm/SignUpForm";
 
 export const SignPage = () => {
   const [form, setForm] = useState("signin");
-  const logged = useAppSelector((state) => state.tempSlice.logged);
+  const logged = useAppSelector((state) => state.user.token);
 
   if (!logged)
     return (
