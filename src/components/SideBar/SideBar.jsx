@@ -1,6 +1,7 @@
 import s from "./SideBar.module.scss";
 import graal from "../../common/graal.png";
 import adminP from "../../common/admin.png";
+import logoutP from "../../common/logout.png";
 import history from "../../common/history.png";
 import settings from "../../common/settings.png";
 
@@ -8,14 +9,12 @@ import { logout } from "../../redux/userSlice";
 import { UserInfo } from "../UserInfo/UserInfo";
 import { SideBarItem } from "../SideBarItem/SideBarItem";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { useNavigate } from "react-router-dom";
 
 export const SideBar = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const user = useAppSelector((state) => state.user);
-  const role = useAppSelector((state) => state.user.role);
-  const logged = useAppSelector((state) => state.user.token);
+  const user = useAppSelector((state) => state.user.user);
+  const role = useAppSelector((state) => state.user.user.role);
+  const logged = useAppSelector((state) => state.user.user.token);
 
   if (logged.length > 0)
     return (
@@ -29,10 +28,14 @@ export const SideBar = () => {
             {role === "SUPER_ADMIN" ? (
               <SideBarItem image={adminP} path="admin" />
             ) : null}
-            <div className={s.logoutBtn} onClick={() => {
+          </div>
+          <div
+            className={s.logout}
+            onClick={() => {
               dispatch(logout());
-              navigate("/login");
-            }}>Log out</div>
+            }}
+          >
+            <SideBarItem image={logoutP} />
           </div>
         </div>
       </>

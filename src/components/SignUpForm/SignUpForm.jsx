@@ -1,50 +1,54 @@
 import s from "./SignUpForm.module.scss";
 
+import { Input } from "../Input/Input";
 import { useForm } from "react-hook-form";
-import { signUpThunk } from "../../redux/thunks"
- 
+import { signUpThunk } from "../../redux/thunks";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+
 export const SignUpForm = () => {
+  const dispatch = useAppDispatch();
+  const error = useAppSelector((state) => state.user.error);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => signUpThunk(data);
+  const onSubmit = (data) => dispatch(signUpThunk(data));
 
   return (
     <>
       <form className={s.formWrapper} onSubmit={handleSubmit(onSubmit)}>
         <div className={s.text}>Create your new account</div>
-        <label className={s.label}>Username</label>
-        <input
-          className={s.input}
-          {...register("username", { required: true, maxLength: 50, min: 2})}
-          style={errors.username ? { border: "1px solid red" } : {}}
+        <Input
+          label="Username"
+          register={register}
+          required={{ required: true, maxLength: 50, min: 2 }}
+          errors={errors}
           placeholder="xvxPAINxvx"
+          errorText="Enter your own username from the game"
         />
-        {errors.username && (
-          <span className={s.error}>Enter your own username from the game</span>
-        )}
-
-        <label className={s.label}>Email</label>
-        <input
-          className={s.input}
+        <Input
+          label="Email"
+          register={register}
+          required={{ required: true }}
+          errors={errors}
           placeholder="abcexample@.gmail.com"
-          {...register("email", { required: true })}
+          errorText="Email cannot be blank"
         />
-        {errors.email && <span className={s.error}>Email cannot be blank</span>}
-
-        <label className={s.label}>Password</label>
-        <input
-          className={s.input}
+        <Input
+          label="Password"
+          register={register}
+          required={{ required: true }}
+          errors={errors}
           placeholder="qwerty123"
-          {...register("password", { required: true })}
+          errorText="Password is required"
         />
-        {errors.password && (
-          <span className={s.error}>Password is required</span>
-        )}
-        <button className={s.submitBtn} type="submit">Sign up</button>
+        <div>{error}</div>
+        <button className={s.submitBtn} type="submit">
+          Sign up
+        </button>
       </form>
     </>
   );

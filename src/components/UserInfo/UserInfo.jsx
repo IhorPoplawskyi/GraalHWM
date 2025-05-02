@@ -9,7 +9,6 @@ export const UserInfo = ({ user }) => {
         <img src={userImage} />
       </div>
       <div>{user.nickname}</div>
-      <div>Attemps: {user.attempts}</div>
     </div>
   );
 };

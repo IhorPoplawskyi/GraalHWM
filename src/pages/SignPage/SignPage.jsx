@@ -4,17 +4,20 @@ import pain from "../../common/painwaiting.gif";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/store";
+import { Preloader } from "../../components/Preloader/Preloader";
 import { SignInForm } from "../../components/SignInForm/SignInForm";
 import { SignUpForm } from "../../components/SignUpForm/SignUpForm";
 
 export const SignPage = () => {
   const [form, setForm] = useState("signin");
-  const logged = useAppSelector((state) => state.user.token);
+  const status = useAppSelector((state) => state.user.status);
+  const logged = useAppSelector((state) => state.user.user.token);
 
   if (!logged)
     return (
       <>
         <div className={s.signPageWrapper}>
+          {status === "pending" && <Preloader />}
           <div className={s.signPageLeft}>
             <div className={s.signButtonsBlock}>
               {form === "signup" && (

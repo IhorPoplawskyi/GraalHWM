@@ -1,12 +1,13 @@
 import s from "./SignInForm.module.scss";
 
+import { Input } from "../Input/Input";
 import { useForm  } from "react-hook-form";
 import { signInThunk } from "../../redux/thunks";
-import { useAppDispatch } from "../../redux/store";
-
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 export const SignInForm = () => {
   const dispatch = useAppDispatch();
+  const error = useAppSelector((state) => state.user.error);
 
   const {
     register,
@@ -20,24 +21,28 @@ export const SignInForm = () => {
     <form className={s.formWrapper} onSubmit={handleSubmit(onSubmit)}>
       <div className={s.text}>Log in to your account</div>
 
-      <label className={s.label}>Email</label>
-      <input
-        className={s.input}
+      <Input
+        label="Email"
+        register={register}
+        required={{ required: true }}
+        errors={errors}
         placeholder="abcexample@.gmail.com"
-        {...register("email", { required: true })}
+        errorText="Email cannot be blank"
       />
-      {errors.email && <span className={s.error}>Email cannot be blank</span>}
 
-      <label className={s.label}>Password</label>
-      <input
-        className={s.input}
+      <Input
+        label="Password"
+        register={register}
+        required={{ required: true }}
+        errors={errors}
         placeholder="qwerty123"
-        {...register("password", { required: true })}
+        errorText="Password is required"
       />
-      {errors.password && <span className={s.error}>Password is required</span>}
+
       <button className={s.submitBtn} type="submit">
         Sign in
       </button>
+      <div>{error}</div>
     </form>
   );
 };

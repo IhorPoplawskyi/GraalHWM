@@ -4,12 +4,19 @@
   align-items: center;
   width: 45px;
   height: 45px;
-  & img {
+
+  img {
     width: 32px;
     height: 32px;
   }
+
   &:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgb(190, 197, 217);
     border-radius: 10px;
+
+    img {
+      width: 35px;
+      height: 35px;
+    }
   }
 }

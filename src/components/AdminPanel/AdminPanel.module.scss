@@ -1,0 +1,30 @@
+.panelWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid gray;
+    width: 60%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    height: 40px;
+}
+
+.button {
+    width: 120px;
+    background-color: rgb(190, 197, 217);
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 30px;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    &:hover {
+        background-color: rgb(250, 200, 133);
+    }
+}
+
+.countInput {
+    width: 70px;
+}

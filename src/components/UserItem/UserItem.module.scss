@@ -1,0 +1,31 @@
+.userWrapper {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    border-bottom: 1px solid gray;
+
+    &:nth-child(odd) {
+        background-color: antiquewhite;
+    }
+}
+
+.nicknameItem {
+    font-size: 14px;
+    font-weight: bold;
+    width: 30%;
+}
+
+.emailItem {
+    font-size: 12px;
+    width: 30%;
+}
+
+.roleItem {
+    font-size: 12px;
+    width: 20%;
+}
+
+.attemptsItem {
+    font-size: 12px;
+    width: 15%;
+}
