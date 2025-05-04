@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signUp, signIn, getUsers, setUserAttempts, getCurrentUser } from "../api";
+import { signUp, signIn, getUsers, setUserAttempts, getCurrentUser, setUserRole, setUserStatus } from "../api";
 
 export const signUpThunk = createAsyncThunk(
   "userSlice/signUpThunk",
@@ -29,6 +29,22 @@ export const setUserAttemptsThunk = createAsyncThunk(
   "admin/setUserAttemptsThunk",
   async ({ token, id, attempts }, thunkAPI) => {
     const data = await setUserAttempts(token, id, attempts);
+    return data;
+  }
+);
+
+export const setUserRoleThunk = createAsyncThunk(
+  "admin/setUserRoleThunk",
+  async ({ token, id, role }, thunkAPI) => {
+    const data = await setUserRole(token, id, role);
+    return data;
+  }
+);
+
+export const setUserStatusThunk = createAsyncThunk(
+  "admin/setUserStatusThunk",
+  async ({ token, id, status }, thunkAPI) => {
+    const data = await setUserStatus(token, id, status);
     return data;
   }
 );

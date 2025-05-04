@@ -25,7 +25,7 @@ export const SideBar = () => {
             <SideBarItem image={graal} path="/" />
             <SideBarItem image={history} path="history" />
             <SideBarItem image={settings} path="settings" />
-            {role === "SUPER_ADMIN" ? (
+            {role === "SUPER_ADMIN" || role === "ADMIN" ? (
               <SideBarItem image={adminP} path="admin" />
             ) : null}
           </div>

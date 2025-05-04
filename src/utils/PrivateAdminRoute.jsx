@@ -5,7 +5,10 @@ export const PrivateAdminRoute = ({ component: RouteComponent }) => {
   const logged = useAppSelector((state) => state.user.user.token);
   const isAdmin = useAppSelector((state) => state.user.user.role)
 
-  if (logged.length > 0 && isAdmin === "SUPER_ADMIN") {
+  if (
+    (logged.length > 0 && isAdmin === "ADMIN") ||
+    (logged.length > 0 && isAdmin === "SUPER_ADMIN")
+  ) {
     return <RouteComponent />;
   }
 

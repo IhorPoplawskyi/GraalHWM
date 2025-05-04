@@ -23,3 +23,13 @@
         color: rgb(0, 0, 0);
     }
 }
+
+.error {
+    width: 270px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 10px;
+}

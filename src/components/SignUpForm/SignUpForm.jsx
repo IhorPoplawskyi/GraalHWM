@@ -3,12 +3,8 @@ import s from "./SignUpForm.module.scss";
 import { Input } from "../Input/Input";
 import { useForm } from "react-hook-form";
 import { signUpThunk } from "../../redux/thunks";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
 
-export const SignUpForm = () => {
-  const dispatch = useAppDispatch();
-  const error = useAppSelector((state) => state.user.error);
-
+export const SignUpForm = ({clearError, dispatch, error, result, clearResult,changeForm}) => {
   const {
     register,
     handleSubmit,
@@ -19,7 +15,14 @@ export const SignUpForm = () => {
 
   return (
     <>
-      <form className={s.formWrapper} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={s.formWrapper}
+        onSubmit={handleSubmit(onSubmit)}
+        onChange={() => {
+          dispatch(clearError());
+          dispatch(clearResult());
+        }}
+      >
         <div className={s.text}>Create your new account</div>
         <Input
           label="Username"
@@ -45,7 +48,17 @@ export const SignUpForm = () => {
           placeholder="qwerty123"
           errorText="Password is required"
         />
-        <div>{error}</div>
+        <div className={s.error}>{error}</div>
+        {result && (
+          <div>
+            <div className={s.result}>
+              {result}, you can now continue to sign in to your new account
+            </div>
+            <span onClick={() => dispatch(changeForm('signin'))} className={s.signInBtnSmall}>
+              continue
+            </span>
+          </div>
+        )}
         <button className={s.submitBtn} type="submit">
           Sign up
         </button>

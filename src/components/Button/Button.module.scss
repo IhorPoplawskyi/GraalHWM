@@ -1,0 +1,47 @@
+.button {
+    width: 120px;
+    font-size: 14px;
+    background-color: rgb(190, 197, 217);
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 30px;
+    align-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    margin-left: 4px;
+    box-shadow: 1px 1px 1px black;
+
+    &:hover {
+        background-color: rgb(95, 95, 95);
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .button {
+        width: 80px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 420px) {
+    .button {
+        width: 80px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .button {
+        width: 90px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .button {
+        width: 120px;
+        font-size: 14px;
+    }
+}

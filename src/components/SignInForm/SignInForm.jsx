@@ -1,14 +1,10 @@
 import s from "./SignInForm.module.scss";
 
 import { Input } from "../Input/Input";
-import { useForm  } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { signInThunk } from "../../redux/thunks";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
 
-export const SignInForm = () => {
-  const dispatch = useAppDispatch();
-  const error = useAppSelector((state) => state.user.error);
-
+export const SignInForm = ({ dispatch, clearError, error }) => {
   const {
     register,
     handleSubmit,
@@ -18,7 +14,11 @@ export const SignInForm = () => {
   const onSubmit = (data) => dispatch(signInThunk(data));
 
   return (
-    <form className={s.formWrapper} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={s.formWrapper}
+      onSubmit={handleSubmit(onSubmit)}
+      onChange={() => dispatch(clearError())}
+    >
       <div className={s.text}>Log in to your account</div>
 
       <Input
@@ -42,7 +42,7 @@ export const SignInForm = () => {
       <button className={s.submitBtn} type="submit">
         Sign in
       </button>
-      <div>{error}</div>
+      <div className={s.error}>{error}</div>
     </form>
   );
 };

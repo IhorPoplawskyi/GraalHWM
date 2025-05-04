@@ -2,7 +2,7 @@ import s from "./PrizeList.module.scss";
 
 import { useAppSelector } from "../../redux/store";
 
-export const PrizeList = () => {
+export const PrizeList = ({ attempts }) => {
   let prizes = useAppSelector((state) => state.tempSlice.data);
   let openCellsCount = useAppSelector((state) => state.tempSlice.data);
   openCellsCount = openCellsCount.filter((el) => el.closed === false);
@@ -14,6 +14,7 @@ export const PrizeList = () => {
     <div className={s.container}>
       <div>Активные призы: {prizes.length}</div>
       <div>Осталось ячеек: {openCellsCount.length}</div>
+      <div>Attempts: {attempts}</div>
       <div className={s.list}>
         {prizes.map((el, i) => (
           <div key={i} className={s.item}>

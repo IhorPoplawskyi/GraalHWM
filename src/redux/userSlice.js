@@ -15,6 +15,8 @@ const InitState = {
   },
   status: "INIT",
   error: "",
+  result: "",
+  form: "signin",
 };
 
 const userSlice = createSlice({
@@ -26,11 +28,24 @@ const userSlice = createSlice({
     },
     clearError(state) {
       state.error = '';
+    },
+    changeForm(state, action) {
+      state.form = action.payload;
+    },
+    clearResult(state) {
+      state.result = "";
+    },
+    clearStatus(state) {
+      state.status = "init";
     }
   },
   extraReducers: (builder) => {
     builder.addCase(signInThunk.pending, (state) => {
       state.status = "pending";
+    });
+    builder.addCase(signInThunk.rejected, (state, action) => {
+      state.error = action.payload.message;
+      state.status = "rejected";
     });
     builder.addCase(signInThunk.fulfilled, (state, action) => {
       if (action.payload.statusCode >= 400 && action.payload.statusCode < 500) {
@@ -53,6 +68,7 @@ const userSlice = createSlice({
       if (action.payload.statusCode >= 400 && action.payload.statusCode < 500) {
         state.error = action.payload.message;
       } else {
+        state.result = action.payload.message;
         state.error = "";
       }
       state.status = "fulfilled";
@@ -61,6 +77,15 @@ const userSlice = createSlice({
     builder.addCase(signUpThunk.rejected, (state, action) => {
       state.status = "rejected";
       state.error = action.payload.message;
+    });
+
+    builder.addCase(getCurrentUserThunk.pending, (state) => {
+      state.status = "pending";
+    });
+
+    builder.addCase(getCurrentUserThunk.rejected, (state, action) => {
+      state.error = action.payload.message;
+      state.status = "rejected";
     });
 
     builder.addCase(getCurrentUserThunk.fulfilled, (state, action) => {
@@ -79,6 +104,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout, clearError } = userSlice.actions;
+export const { logout, clearError, changeForm, clearResult, clearStatus } = userSlice.actions;
 
 export default userSlice.reducer;

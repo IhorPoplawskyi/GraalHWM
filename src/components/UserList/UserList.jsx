@@ -6,15 +6,15 @@ import {
   deleteCheckedUser,
   addCheckedUser,
 } from "../../redux/adminSlice";
+import { UserListLabel } from "../UserListLabels/UserListLabels";
 
 export const UserList = ({ users }) => {
 
   return (
     <>
       <div className={s.UserListWrapper}>
-
-        <UserItem
-          addFunc={addAllChecked} 
+        <UserListLabel
+          addFunc={addAllChecked}
           delFunc={delAllChecked}
           user={users}
         />

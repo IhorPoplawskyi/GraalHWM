@@ -2,30 +2,125 @@
     display: flex;
     justify-content: start;
     width: 100%;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
     border-bottom: 1px solid gray;
+    padding: 0px 3px;
+    box-sizing: border-box;
 
     &:nth-child(odd) {
-        background-color: antiquewhite;
+        background-color: rgb(238, 238, 238);
     }
 }
 
 .nicknameItem {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: bold;
     width: 30%;
+    align-self: center;
 }
 
 .emailItem {
-    font-size: 12px;
+    font-size: 10px;
     width: 30%;
+    align-self: center;
 }
 
 .roleItem {
-    font-size: 12px;
+    font-size: 10px;
     width: 20%;
+    align-self: center;
+}
+
+.statusItem {
+    font-size: 10px;
+    width: 10%;
+    align-self: center;
+}
+
+.statusTrue {
+    color: green;
+}
+
+.statusFalse {
+    color: red;
 }
 
 .attemptsItem {
-    font-size: 12px;
-    width: 15%;
+    font-size: 10px;
+    width: 7%;
+    text-align: center;
+    align-self: center;
+}
+
+@media only screen and (max-width: 420px) {
+    .nicknameItem {
+        font-size: 8px;
+        overflow-wrap: break-word;
+    }
+
+    .emailItem {
+        font-size: 8px;
+        overflow-wrap: break-word;
+    }
+
+    .attemptsItem {
+        font-size: 8px;
+    }
+
+    .roleItem {
+        font-size: 8px;
+        overflow-wrap: break-word;
+    }
+
+    .statusItem {
+        font-size: 8px;
+    }
+}
+
+@media only screen and (min-width: 420px) {
+    .nicknameItem {
+        font-size: 8px;
+        overflow-wrap: break-word;
+    }
+
+    .emailItem {
+        font-size: 8px;
+        overflow-wrap: break-word;
+    }
+
+    .attemptsItem {
+        font-size: 8px;
+    }
+
+    .roleItem {
+        font-size: 8px;
+        overflow-wrap: break-word;
+    }
+
+    .statusItem {
+        font-size: 8px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .nicknameItem {
+        font-size: 10px;
+    }
+
+    .emailItem {
+        font-size: 10px;
+    }
+
+    .attemptsItem {
+        font-size: 10px;
+    }
+
+    .roleItem {
+        font-size: 10px;
+    }
+
+    .statusItem {
+        font-size: 10px;
+    }
 }

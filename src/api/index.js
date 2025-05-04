@@ -1,6 +1,7 @@
 const signInEndpoint = "https://treasure-bay.onrender.com/auth/sign-in";
-
 const signUpEndpoint = "https://treasure-bay.onrender.com/users/sign-up";
+const adminUsersEndpoint = "https://treasure-bay.onrender.com/admin-users";
+
 
 export const signIn = async ({ Email, Password }) => {
   const obj = {
@@ -49,15 +50,13 @@ export const getUsers = async (token) => {
 
   try {
     const response = await fetch(
-      "https://treasure-bay.onrender.com/admin-users",
-      {
-        method: "GET",
-        headers: { 
-          "Content-type": "application/json",
-          "Authorization": `Bearer ${token}`
-         },
-      }
-    );
+      adminUsersEndpoint, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const data = await response.json();
     return data;
   } catch (e) {
@@ -68,7 +67,7 @@ export const getUsers = async (token) => {
 export const setUserAttempts = async (token, id, attempts) => {
   try {
     const response = await fetch(
-      "https://treasure-bay.onrender.com/admin-users/attempts",
+      `${adminUsersEndpoint}/attempts`,
       {
         body: JSON.stringify({
           id,
@@ -81,6 +80,47 @@ export const setUserAttempts = async (token, id, attempts) => {
         },
       }
     );
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const setUserRole = async (token, id, role) => {
+  try {
+    const response = await fetch(`${adminUsersEndpoint}/role`, {
+      body: JSON.stringify({
+        id,
+        role,
+      }),
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    console.log(data)
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const setUserStatus = async (token, id, status) => {
+  try {
+    const response = await fetch(`${adminUsersEndpoint}/status`, {
+      body: JSON.stringify({
+        id,
+        status,
+      }),
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const data = await response.json();
     return data;
   } catch (e) {
@@ -101,7 +141,6 @@ export const getCurrentUser = async (token) => {
       }
     );
     const data = await response.json();
-    console.log(data)
     return data;
   } catch (e) {
     console.log(e);

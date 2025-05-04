@@ -1,25 +1,25 @@
 import s from "./MainPage.module.scss";
 
-import { Map } from "../../components/Map/Map";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { PrizeList } from "../../components/PrizeList/PrizeList";
 import { useEffect } from "react";
+import { Map } from "../../components/Map/Map";
 import { getCurrentUserThunk } from "../../redux/thunks";
+import { PrizeList } from "../../components/PrizeList/PrizeList";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 
 export const MainPage = () => {
   const dispatch = useAppDispatch();
+  const data = useAppSelector((state) => state.tempSlice.data);
   const token = useAppSelector((state) => state.user.user.token);
-  useEffect(() => {
-    dispatch(getCurrentUserThunk(token))
-  }, [dispatch])
-  let data = useAppSelector((state) => state.tempSlice.data);
-  let attempts = useAppSelector((state) => state.user.user.attempts);
+  const attempts = useAppSelector((state) => state.user.user.attempts);
+
+    useEffect(() => {
+      dispatch(getCurrentUserThunk(token));
+    }, [dispatch]);
 
   return (
     <div className={s.mainPageWrapper}>
-      <div>Attempts: {attempts}</div>
       <div className={s.mainPageContainer}>
-        <PrizeList />
+        <PrizeList attempts={attempts}/>
         <Map data={data} attemps={attempts} />
       </div>
     </div>

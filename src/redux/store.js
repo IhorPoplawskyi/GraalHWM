@@ -12,9 +12,9 @@ import {
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import tempSlice from "./tempSlice";
-import storage from "redux-persist/lib/storage";
 import userSlice from "./userSlice";
 import adminSlice from "./adminSlice";
+import storage from "redux-persist/lib/storage";
 
 const rootReducer = combineReducers({
   tempSlice,
