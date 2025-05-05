@@ -15,6 +15,13 @@
 
     &:hover {
         background-color: rgb(95, 95, 95);
+        font-size: 13px;
+    }
+
+    &:active {
+        background-color: rgb(95, 95, 95);
+        box-shadow: 0 1px #cbcbcb;
+        transform: translateY(1px);
     }
 }
 

@@ -1,5 +1,5 @@
 .mainPageWrapper {
-  width: 60%;
+  width: 70%;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -17,6 +17,14 @@
   width: 100%;
 }
 
+.adminBlock {
+  margin-top: 10px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 @media only screen and (max-width: 420px) {
   .mainPageWrapper {
     width: 95%;
@@ -25,6 +33,11 @@
   .mainPageContainer {
     flex-direction: column-reverse;
     width: 100%;
+  }
+
+  .adminBlock {
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -37,6 +50,11 @@
     flex-direction: column-reverse;
     width: 100%;
   }
+
+  .adminBlock {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -48,11 +66,18 @@
     flex-direction: row;
     width: 100%;
   }
+
+  .adminBlock {
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    margin-top: 0px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   .mainPageWrapper {
-    width: 65%;
+    width: 75%;
   }
 
   .mainPageContainer {
