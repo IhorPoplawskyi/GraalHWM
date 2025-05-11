@@ -16,8 +16,8 @@ export const App = () => {
       <div className={s.wrapper}>
         <PrivateRoute component={SideBar}/>
         <Routes>
-          <Route path="*" element={<Navigate to="/" />} />
-          <Route path="/" element={<PrivateRoute component={MainPage} />} />
+          <Route path="*" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<PrivateRoute component={MainPage} />} />
           <Route path="history" element={<PrivateRoute component={HistoryPage} />} />
           <Route path="/admin" element={<PrivateAdminRoute component={AdminPage} />} />
            <Route path="/login" element={<SignPage />} />

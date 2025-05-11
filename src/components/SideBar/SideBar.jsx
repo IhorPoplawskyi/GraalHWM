@@ -22,7 +22,7 @@ export const SideBar = () => {
         <div className={s.container}>
           <UserInfo user={user} />
           <div className={s.sideBarItems}>
-            <SideBarItem image={graal} path="/" />
+            <SideBarItem image={graal} path="/home" />
             <SideBarItem image={history} path="history" />
             <SideBarItem image={settings} path="settings" />
             {role === "SUPER_ADMIN" || role === "ADMIN" ? (

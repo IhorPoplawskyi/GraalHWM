@@ -12,6 +12,6 @@ export const PrivateAdminRoute = ({ component: RouteComponent }) => {
     return <RouteComponent />;
   }
 
-  return <Navigate to="/" />;
+  return <Navigate to="/home" />;
 };
 
