@@ -8,6 +8,20 @@ export const UserItem = ({ user, addFunc, delFunc }) => {
   return (
     <>
       <div className={s.userWrapper}>
+        <div className={s.checkbox}>
+          <input
+            
+            type="checkbox"
+            checked={user.checked}
+            onChange={(e) => {
+              if (e.target.checked === true) {
+                dispatch(addFunc(user));
+              } else {
+                dispatch(delFunc(user));
+              }
+            }}
+          />
+        </div>
         <div className={s.nicknameItem}>{user.nickname}</div>
         <div className={s.emailItem}>{user.email}</div>
         <div className={s.roleItem}>{user.role}</div>
@@ -19,17 +33,6 @@ export const UserItem = ({ user, addFunc, delFunc }) => {
           }
         >{`${user.status ? "Active" : "Inactive"}`}</div>
         <div className={s.attemptsItem}>{user.attempts}</div>
-        <input
-          type="checkbox"
-          checked={user.checked}
-          onChange={(e) => {
-            if (e.target.checked === true) {
-              dispatch(addFunc(user));
-            } else {
-              dispatch(delFunc(user));
-            }
-          }}
-        />
       </div>
     </>
   );

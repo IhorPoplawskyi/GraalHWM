@@ -1,10 +1,10 @@
-import s from "./AdminPanel.module.scss";
+import s from "./AdminUsersPanel.module.scss";
 
 import { useState } from "react";
 import { Button } from "../Button/Button";
 import { setUserAttemptsThunk, setUserRoleThunk, setUserStatusThunk } from "../../redux/thunks";
 
-export const AdminPanel = ({ dispatch, token, checkedUsers, role }) => {
+export const AdminUsersPanel = ({ dispatch, token, checkedUsers, role }) => {
   const [attempts, setAttemps] = useState(0);
   const setUserRoleFunc = (role) => dispatch(setUserRoleThunk({token, id:  checkedUsers[0]?._id, role}));
   const setUserStatusFunc = (status) => dispatch(setUserStatusThunk({token, id:  checkedUsers[0]?._id, status}));

@@ -2,15 +2,14 @@
     display: flex;
     justify-content: start;
     width: 100%;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(235, 235, 235);
     padding: 0px 3px;
     box-sizing: border-box;
+}
 
-    &:nth-child(odd) {
-        background-color: rgb(238, 238, 238);
-    }
+.checkbox {
+    padding: 2px;
+    border-right: 1px solid rgb(235, 235, 235);
 }
 
 .nicknameItem {
@@ -18,6 +17,7 @@
     font-weight: bold;
     width: 30%;
     align-self: center;
+    margin-left: 5px;
 }
 
 .emailItem {

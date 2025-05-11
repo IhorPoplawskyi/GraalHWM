@@ -2,12 +2,13 @@ import cn from "classnames";
 import s from "./AdminPage.module.scss";
 
 import { useEffect, useState } from "react";
+import { AdminPageBtn } from "./AdminPageBtn";
 import { getUsersThunk } from "../../redux/thunks";
 import { UserList } from "../../components/UserList/UserList";
 import { Preloader } from "../../components/Preloader/Preloader";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { AdminPanel } from "../../components/AdminPanel/AdminPanel";
-import { AdminPageBtn } from "./AdminPageBtn";
+import { AdminUsersPanel } from "../../components/AdminUsersPanel/AdminUsersPanel";
+import { AdminGraalPanel } from "../../components/AdminGraalPanel/AdminGraalPanel";
 
 export const AdminPage = () => {
   const dispatch = useAppDispatch();
@@ -48,13 +49,23 @@ export const AdminPage = () => {
         </div>
         {panelType === "users" && (
           <div className={s.adminPageContainer}>
-            <AdminPanel
+            <AdminUsersPanel
               dispatch={dispatch}
               token={token}
               checkedUsers={checkedUsers}
               role={isAdmin}
             />
             <UserList users={users} />
+          </div>
+        )}
+        {panelType === "graal" && (
+          <div className={s.adminPageContainer}>
+            <AdminGraalPanel
+              dispatch={dispatch}
+              token={token}
+              checkedUsers={checkedUsers}
+              role={isAdmin}
+            />
           </div>
         )}
       </div>

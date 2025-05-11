@@ -1,0 +1,21 @@
+.panelWrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: column;
+    padding: 5px;
+    width: 90%;
+    box-sizing: border-box;
+    height: 60px;
+    border-bottom: none;
+}
+
+.operationBlock {
+    display: flex;
+    width: 90%;
+}
+
+.prizesInput {
+    width: 90%;
+    height: 40px;
+}
