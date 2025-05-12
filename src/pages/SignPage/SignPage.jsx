@@ -16,6 +16,7 @@ export const SignPage = () => {
   const result = useAppSelector((state) => state.user.result);
   const status = useAppSelector((state) => state.user.status);
   const logged = useAppSelector((state) => state.user.user.token);
+  console.log(form)
   
   useEffect(() => {
     dispatch(clearError());
