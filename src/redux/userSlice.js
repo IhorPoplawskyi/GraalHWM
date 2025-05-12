@@ -30,7 +30,7 @@ const userSlice = createSlice({
       state.error = '';
     },
     changeForm(state, action) {
-      state.form = action.payload;
+      state.formType = action.payload;
     },
     clearResult(state) {
       state.result = "";
