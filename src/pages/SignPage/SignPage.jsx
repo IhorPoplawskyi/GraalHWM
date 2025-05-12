@@ -11,12 +11,12 @@ import { clearError, changeForm, clearResult, clearStatus } from "../../redux/us
 
 export const SignPage = () => {
   const dispatch = useAppDispatch();
-  const form = useAppSelector((state) => state.user.form);
+  const formType = useAppSelector((state) => state.user.formType);
   const error = useAppSelector((state) => state.user.error);
   const result = useAppSelector((state) => state.user.result);
   const status = useAppSelector((state) => state.user.status);
   const logged = useAppSelector((state) => state.user.user.token);
-  console.log(form)
+  console.log(formType);
   
   useEffect(() => {
     dispatch(clearError());
@@ -31,7 +31,7 @@ export const SignPage = () => {
           {status === "pending" && <Preloader />}
           <div className={s.signPageLeft}>
             <div className={s.signButtonsBlock}>
-              {form === "signup" && (
+              {formType === "signup" && (
                 <div>
                   <div className={s.text}>Already have account?</div>
                   <div
@@ -45,7 +45,7 @@ export const SignPage = () => {
                   </div>
                 </div>
               )}
-              {form === "signin" && (
+              {formType === "signin" && (
                 <div>
                   <div className={s.text}>Don't have account?</div>
                   <div
@@ -60,14 +60,14 @@ export const SignPage = () => {
                 </div>
               )}
             </div>
-            {form === "signin" && (
+            {formType === "signin" && (
               <SignInForm
                 error={error}
                 dispatch={dispatch}
                 clearError={clearError}
               />
             )}
-            {form === "signup" && (
+            {formType === "signup" && (
               <SignUpForm
                 error={error}
                 result={result}

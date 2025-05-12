@@ -16,7 +16,7 @@ const InitState = {
   status: "INIT",
   error: "",
   result: "",
-  form: "signin",
+  formType: "signin",
 };
 
 const userSlice = createSlice({
