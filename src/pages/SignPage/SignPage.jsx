@@ -83,5 +83,5 @@ export const SignPage = () => {
         </div>
       </>
     );
-  return <Navigate to={"/"} />;
+  return <Navigate to={"/home"} />;
 };
